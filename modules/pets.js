@@ -1,18 +1,29 @@
 'use strict';
 
+require('dotenv').config();
 const axios = require('axios');
-
-// function findPets(req, res, next) {
-//     let pet = req.query.petFinder;
-//     let petsUrl = `https://api.petfinder.com/v2/animals`;
-
-
-// axios.get(petsUrl)
-//  .then(res => {
-//     let 
-//  })
-// }
+const cache = require('../cache');
+const getToken = require('./getToken');
 
 
 
-// module.exports = findPets;
+const getPets = async (req, res, next) => {
+  let url = `https://api.petfinder.com/v2/animals`;
+  getToken();
+  res.send(cache);
+  // if (cache.key && (Date.now() - cache.key.timestamp < 3600000)) {
+  //   let config = { headers: { 'Authorization': `Bearer ${cache.key}` } };
+  //   let response = await axios.get(url, config);
+  //   res.status(200).send(response);
+  // }
+  // else {
+  //   getToken;
+  //   let config = { headers: { 'Authorization': `Bearer ${cache.key}` } };
+  //   let response = await axios.get(url, config);
+  //   res.status(200).send(response.data);
+  // }
+};
+
+
+
+module.exports = getPets;
