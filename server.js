@@ -4,7 +4,8 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const handlePets = require('./modules/pets');
+// const getPets = require('./modules/pets');
+const petHandler = require('./modules/handlePets');
 
 
 const app = express();
@@ -28,10 +29,10 @@ app.get('/', (req, res) => {
   res.send('Hola. Your default endpoint is working');
 });
 
-app.get('/pets', handlePets);
-
-
-
+app.get('/pets', petHandler.getPets);
+app.post('/pets', petHandler.postPets);
+app.delete('/pets/:id', petHandler.deletePets);
+app.put('/pets/:id', petHandler.putPets);
 
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));

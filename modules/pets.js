@@ -1,6 +1,7 @@
-'use strict';
+// 'use strict';
 
 // require('dotenv').config();
+
 const axios = require('axios');
 const cache = require('../cache');
 
@@ -89,4 +90,7 @@ class Pet{
 
 
 
-module.exports = getPets;
+
+
+
+// module.exports = getPets;
