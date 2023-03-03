@@ -21,16 +21,29 @@ const getToken = async (req, res, next) => {
 const getPets = (req, res, next) => {
 
   //query parameters
-  const type = req.query.type;
-  const age = req.query.age;
-  const size = req.query.size;
-  const location = req.query.location;
-  const distance = req.query.distance;
-  const goodWithChildren = req.query.good_with_children;
-  const goodWithDogs = req.query.good_with_dogs;
-  const goodWithCats = req.query.good_with_cats;
+  const {type,age,size,location,distance,goodWithChildren,goodWithDogs,goodWithCats} = req.query;
+  const queryArray = Object.entries(req.query);
+  // console.log(queryArray);
+  // const type = req.query.type;
+  // const age = req.query.age;
+  // const size = req.query.size;
+  // const location = req.query.location;
+  // const distance = req.query.distance;
+  // const goodWithChildren = req.query.good_with_children;
+  // const goodWithDogs = req.query.good_with_dogs;
+  // const goodWithCats = req.query.good_with_cats;
 
-  let url = `https://api.petfinder.com/v2/animals?status=adoptable&type=${type}&age=${age}&size=${size}&location=${location}&distance=${distance}`;
+  // let url = `https://api.petfinder.com/v2/animals?status=adoptable&type=${type}&age=${age}&size=${size}&location=${location}&distance=${distance}`;
+
+  let url = 'https://api.petfinder.com/v2/animals?';
+
+  queryArray.forEach(arr => {
+    if(arr[1] !== undefined){
+      url += `${arr[0]}=${arr[1]}&`;
+    }
+  });
+
+  // console.log(url);
 
   if (cache.key && (Date.now() - cache.timestamp < 3600000)) {
     console.log(`cache hit - sending cached data`);
