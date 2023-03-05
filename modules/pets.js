@@ -93,4 +93,4 @@ class Pet{
 
 
 
-// module.exports = getPets;
+module.exports = getPets;
