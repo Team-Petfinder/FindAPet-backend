@@ -5,12 +5,13 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const handlePets = require('./modules/pets');
+const verifyUser = require('./authorize');
 
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-
+app.use(verifyUser);
 
 const PORT = process.env.PORT || 3002;
 
