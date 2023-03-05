@@ -4,7 +4,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-// const getPets = require('./modules/pets');
+const getPets = require('./modules/pets');
 const petHandler = require('./modules/handlePets');
 
 
@@ -33,6 +33,6 @@ app.get('/pets', petHandler.getPets);
 app.post('/pets', petHandler.postPets);
 app.delete('/pets/:id', petHandler.deletePets);
 app.put('/pets/:id', petHandler.putPets);
-
+app.get('/getpet', getPets);
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
