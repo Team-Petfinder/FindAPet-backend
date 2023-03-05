@@ -1,6 +1,7 @@
-'use strict';
+// 'use strict';
 
 // require('dotenv').config();
+
 const axios = require('axios');
 const cache = require('../cache');
 
@@ -87,6 +88,9 @@ class Pet{
     // this.pet_photo = pet.photos[0].small;
   }
 }
+
+
+
 
 
 
