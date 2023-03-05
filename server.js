@@ -4,14 +4,16 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+// const verifyUser = require('./authorize');
 const getPets = require('./modules/pets');
 const petHandler = require('./modules/handlePets');
+
 
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-
+// app.use(verifyUser);
 
 const PORT = process.env.PORT || 3002;
 
