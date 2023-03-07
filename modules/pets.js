@@ -36,7 +36,7 @@ const getPets = (req, res, next) => {
 
   // let url = `https://api.petfinder.com/v2/animals?status=adoptable&type=${type}&age=${age}&size=${size}&location=${location}&distance=${distance}`;
 
-  let url = 'https://api.petfinder.com/v2/animals?';
+  let url = 'https://api.petfinder.com/v2/animals?status=adoptable&';
 
   queryArray.forEach(arr => {
     if(arr[1] !== undefined){
