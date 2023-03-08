@@ -9,7 +9,10 @@ const getPets = require('./modules/pets');
 const petHandler = require('./modules/handlePets');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: '*',
+}));
+
 app.use(express.json());
 
 const PORT = process.env.PORT || 3002;
@@ -26,7 +29,7 @@ app.get('/', (req, res) => {
   res.send('Hola. Your default endpoint is working');
 });
 
-// all users will be able to search adoptable pets using this route.
+//! all users will be able to search adoptable pets using this route.
 app.get('/getpet', getPets);
 
 // only verified vusers will be able to CRUD a "favorite" pet.
