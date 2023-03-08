@@ -85,7 +85,7 @@ class Pet{
     this.pet_status = pet.status;
     this.pet_distance = pet.distance;
     this.pet_link = pet.url;
-    // this.pet_photo = pet.photos[0].small;
+    this.pet_photo = pet.photos[1];
   }
 }
 
