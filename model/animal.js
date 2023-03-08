@@ -10,6 +10,7 @@ const petSchema = new Schema({
   gender: String,
   size: String,
   link: String,
+  email: String,
 });
 
 

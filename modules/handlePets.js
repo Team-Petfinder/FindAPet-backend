@@ -6,7 +6,8 @@ const petHandler = {};
 
 petHandler.getPets = function (req, res, next) {
   // empty object returns all
-  let queryObject = {};
+  // console.log(req.user);
+  let queryObject = {email: req.user.email};
   Animal.find(queryObject)
     .then(data => res.status(200).send(data))
     .catch(error => next(error));
@@ -14,7 +15,7 @@ petHandler.getPets = function (req, res, next) {
 
 petHandler.postPets = function (req, res, next) {
   const data = req.body;
-  Animal.create(data)
+  Animal.create({...data, email: req.user.email})
     .then(createdAnimal => res.status(200).send(createdAnimal))
     .catch(error => next(error));
 };
